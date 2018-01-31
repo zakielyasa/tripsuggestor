@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <h1>User edit</h1>
+    <form class="" action="/place/edit/<%= dataPlaces.id %>" method="post">
+      <input type="text" placeholder="name" name="name" value= <%=dataPlaces.name %>>
+      <button>EDIT</button>
+    </form>
+    <!DOCTYPE html>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var PS = {lat: -6.225588, lng: 106.798553};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: PS
+        });
+        var marker = new google.maps.Marker({
+          position: PS,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAIzXpQR2AexfyCCtje5jaSrMtQO5rPNsQ&callback=initMap">
+  </script>
+</body>
+</html>
