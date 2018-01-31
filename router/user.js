@@ -55,21 +55,22 @@ router.get('/login', (req,res) => {
 })
 
 router.post('/login', (req,res) => {
-  models.User.findOne({
-    where: {
-      username: req.body.username
-    }
-  }).then(user => {
-    if (user) {
-      // console.log(user.password);
-      bcrypt.compare(req.body.password, user.password).then((res) => {
-        if(res){
+  // res.send(req.body)
+  models.User.findOne({where: {username: req.body.username}}).then(user => {
+    // const saltRounds = 10;
+    // const myPlaintextPassword = 'user.password';
+    // return bcrypt.hash(myPlaintextPassword, saltRounds).then(hash => {
+    //   user.password = hash
+    // console.log(user.password);
+    // console.log(user.password);
+      bcrypt.compare(req.body.password, user.password).then((result) => {
+        // console.log(result)
+        if(result){
         res.redirect('/interest')
-        } 
+        } else {
+          console.log('Invalid password or username')
+        }
       })
-    } else {
-      console.log('no data');
-    }
   }).catch(err => {
     console.log(err);
   })
