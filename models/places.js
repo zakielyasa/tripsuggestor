@@ -4,20 +4,22 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { 
+      validate: {
           is: ["^[a-z]+$",'i'], //hanya nerima huruf
           notEmpty: true
        }
     }
   });
 
-  Places.associate = (models) => {
-    Places.hasMany(models.places_interest, {
-      foreignKey: 'places_id'
-    })
-    Places.hasMany(models.user_places, {
-      foreignKey: 'places_id'
-    })
+  Places.associate = function (models) {
+
+    Places.belongsToMany(models.places_interest, { through: 'places_interest', foreignKey: 'places_id', otherKey: 'interest_id'})
+
+    // Places.belongsToMany(models.user_places, {
+    //   foreignKey: 'places_id',
+    //   through: 'places_interest'
+    // })
+    //
   }
   return Places;
 };

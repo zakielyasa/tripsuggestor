@@ -7,29 +7,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <h1>Please choose ur interest!</h1>
+    <h1>Your interest here..</h1>
     <table>
-      <!-- <thead>
-        <tr>
-          <th>What Do You Want To Do ?</th>
-      </thead> -->
-      <!-- <tbody>
-        <%input.forEach(data =>{%>
-        <tr>
-          <td><%=data.id%></td>
-          <td><%=data.interest%></td>
-          <td><a href="/interest/delete/<%=data.id%>" action="/interest/delete/id" method="get">delete</a></td>
-        </tr>
-        <%})%>
-      </tbody> -->
-      <form action="/interest" method="post">
-          <select name = "id_contact">
+      <form action="/interest/list" method="post">
+          <select class="form-control" name = "id_contact">
             <%input.forEach(data =>{%>
             <option value ="<%=data.id%>"> <%=data.interest%> </option>
             <%})%>
           </select><br>
-          <button>SUBMIT</button>
+          <button class="btn btn-success">SUBMIT</button>
         </form>
+        <br><br>
+        <thead>
+          <h1>Suggestion</h1>
+            <tr>
+              <th>Place u should go</th>
+        </thead>
     </table>
   </body>
 </html>

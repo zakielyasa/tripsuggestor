@@ -5,14 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     interest_id: DataTypes.INTEGER
   });
 
-  places_interest.associate = (models) => {
-    places_interest.belongsTo(models.Places, {
-      foreignKey: 'places_id'
-    })
+  places_interest.associate = function (models) {
 
-    places_interest.belongsTo(models.Interest, {
-      foreignKey: 'interest_id'
-    })
+    places_interest.belongsTo(models.Places, {foreignKey: 'places_id'})
+
+    places_interest.belongsTo(models.Interest, {foreignKey: 'interest_id'})
+
   }
 
   return places_interest;

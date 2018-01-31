@@ -2,15 +2,21 @@ const express = require('express')
 const router = express.Router()
 const models = require('../models')
 
-router.get('/', (req,res) => {
-  res.send('Its a interest page')
-})
+
 
 router.get('/list', (req,res) =>{
-  models.Interest.findAll()
+  models.Interest.findAll({include: [models.Places]})
   .then(data => {
-    res.render('interest.ejs',{input: data})
+    res.send(data)
+    // res.render('interest.ejs',{input: data})
   })
+})
+
+router.get('/list', (req,res) => {
+  models.Interest.findAndCountAll({
+    include: [
+      {model: Places}
+    ]})
 })
 
 router.get('/createInt', (req,res) => {
@@ -29,6 +35,8 @@ router.post('/list', (req,res) => {
     models.Interest.destroy ({where: {id: req.params.id}})
     .then(data => res.redirect('/interest/list'))
   })
+
+
 
 
 module.exports = router
