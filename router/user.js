@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const models = require('../models')
 const bcrypt = require('bcrypt')
+const loginAuth = require('../helper/loginAuth')
+
 
 router.get('/', (req,res) => {
   res.send('WELCOME TO INTEREST ADVISOR')
@@ -66,7 +68,8 @@ router.post('/login', (req,res) => {
       bcrypt.compare(req.body.password, user.password).then((result) => {
         // console.log(result)
         if(result){
-        res.redirect('/interest')
+          req.session.loggingIn = true
+        res.redirect('/interest/list')
         } else {
           console.log('Invalid password or username')
         }
@@ -75,6 +78,16 @@ router.post('/login', (req,res) => {
     console.log(err);
   })
 })
+
+router.get('/logout', (req, res) => {
+  req.session.loggingIn = false
+  req.session.destroy(err => {
+    if(!err){
+      res.redirect('/')
+    }
+  })
+})
+
 
 
 

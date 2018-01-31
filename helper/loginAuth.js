@@ -1,8 +1,8 @@
 function loginAuth(req, res, next){
-    if(req.session.login){
-        return next()
+    if(req.session.loggingIn){
+         next()
     } else{
-        res.redirect('/login')
+        res.redirect('/')
     }
 }
 module.exports = {loginAuth: loginAuth}

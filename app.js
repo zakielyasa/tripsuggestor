@@ -4,7 +4,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const model = require('./models')
 const session = require('express-session')
-const loginAuth = require('./helper/loginAuth')
+const loginAuth = require('./helper/loginAuth').loginAuth
 // const cookieParser = require('cookieParser')
 // const session = require('express-session');
 // const morgan = require('morgan')
@@ -24,8 +24,8 @@ app.use(session({
 
 app.use('/', index)
 app.use('/user', user)
-app.use('/interest', interest)
-app.use('/place', place)
+app.use('/interest', loginAuth, interest)
+app.use('/place', loginAuth, place)
 
 
 app.listen(3000, () => console.log('CUUSSSSS di 3000'))
