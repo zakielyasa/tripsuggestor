@@ -26,13 +26,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   })
 
-  User.associate = (models) => {
-    User.hasMany(models.user_interest, {
-      foreignKey: 'user_id'
-    })
-    User.hasMany(models.user_places, {
-      foreignKey: 'user_id'
-    })
+  User.associate = function(models){
+    User.belongsToMany(models.Interest, {
+      through: 'user_interest',
+      foreignKey: 'user_id',
+      otherKey: 'interest_id'})
+
+    User.belongsToMany(models.Places, {
+      through: 'user_places',
+      foreignKey: 'user_id',
+      otherKey: 'places_id'})
   }
 
   User.beforeCreate(user => {

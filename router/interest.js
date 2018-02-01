@@ -51,9 +51,14 @@ router.post('/places_interest/', (req, res) => {
     // res.send(data[0].Places[0].name)
     res.render('places_interest',{input: data})
   })
+})
 
+// router.get('/places_interest/detail_place', (req, res) => {
+//
+// })
 
-
+router.get('/wishlist', (req,res) => {
+  res.render('wishlist.ejs')
 })
 
 
