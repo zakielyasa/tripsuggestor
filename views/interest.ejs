@@ -9,20 +9,17 @@
   <body>
     <h1>Your interest here..</h1>
     <table>
-      <form action="/interest/list" method="post">
+
+      <form action="/interest/places_interest" method="post">
+
           <select class="form-control" name = "id_contact">
             <%input.forEach(data =>{%>
-            <option value ="<%=data.id%>"> <%=data.interest%> </option>
+            <option value ="<%=data.id%>" name="id"> <%=data.interest%> </option>
             <%})%>
           </select><br>
           <button class="btn btn-success">SUBMIT</button>
         </form>
         <br><br>
-        <thead>
-          <h1>Suggestion</h1>
-            <tr>
-              <th>Place u should go</th>
-        </thead>
     </table>
   </body>
 </html>
