@@ -57,9 +57,20 @@ router.post('/places_interest/', (req, res) => {
 //
 // })
 
-router.get('/wishlist', (req,res) => {
-  res.render('wishlist.ejs')
+router.get('/create_wishlist', (req,res) => {
+    res.render('wishlist.ejs')
 })
+
+router.post('/create_wishlist', (req, res) => {
+  let objNewWishlist = {
+    wishlist: req.body.wishlist
+  }
+  models.user_places.create(objNewWishlist).then(() => {
+    res.redirect('/places_interest')
+  })
+})
+
+
 
 
 
