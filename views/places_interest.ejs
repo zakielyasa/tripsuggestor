@@ -7,7 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <h1>Pick ur place.</h1>
+    <h1>Places you might like to visit</h1>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -19,12 +19,13 @@
         <%input.forEach(data =>{%>
           <%data.Places.forEach(result =>{%>
         <tr>
-          <td><%=result.name%></td>
-          <td><a href="" action="/contacts/delete/id" method="get">Add to wishlist</td>
+          <td><a href="/interest/places_interest/<%= result.id%>/detail_place"><%=result.name%></a></td>
+          <td><a href="/interest/wishlist" action="/interest/invoice" method="get">Add to wishlist</a></td>
         </tr>
         <%})%>
         <%})%>
       </tbody>
+      <p><a href="/interest/list">Back</a></p>
     </table>
   </body>
 </html>

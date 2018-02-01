@@ -68,6 +68,7 @@ router.post('/login', (req,res) => {
         // console.log(result)
         if(result){
           req.session.loggingIn = true
+          req.session.user = user
         res.redirect('/interest/list')
         } else {
           console.log('Invalid password or username')
