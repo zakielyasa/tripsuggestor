@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   })
 
+
   User.associate = function(models){
     User.belongsToMany(models.Interest, {
       through: 'user_interest',
@@ -36,11 +37,14 @@ module.exports = (sequelize, DataTypes) => {
       through: 'user_places',
       foreignKey: 'user_id',
       otherKey: 'places_id'})
+
   }
 
   User.beforeCreate(user => {
     const saltRounds = 10;
-    const myPlaintextPassword = 'user.password';
+
+    const myPlaintextPassword = user.password;
+
     return bcrypt.hash(myPlaintextPassword, saltRounds).then(hash => {
       user.password = hash
   })

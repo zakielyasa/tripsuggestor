@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const models = require('../models')
+const bcrypt = require('bcrypt')
+const loginAuth = require('../helper/loginAuth')
+
 
 
 
@@ -51,24 +54,40 @@ router.get('/login', (req,res) => {
   res.render('login')
 })
 
-// router.post('/login', (req,res) => {
-//   models.User.findOne({
-//     where: {
-//       username: req.body.username
-//     }
-//   }).then(User => {
-//     if (User) {
-//       console.log(User.password);
-//       // bcrypt.compare(req.body.password, User.password)
-//       // res.render('/interest')
-//     }
-//     else {
-//       console.log('no data');
-//     }
-//   }).catch(err => {
-//     console.log(err);
-//   })
-// })
+
+router.post('/login', (req,res) => {
+  // res.send(req.body)
+  models.User.findOne({where: {username: req.body.username}}).then(user => {
+    // const saltRounds = 10;
+    // const myPlaintextPassword = 'user.password';
+    // return bcrypt.hash(myPlaintextPassword, saltRounds).then(hash => {
+    //   user.password = hash
+    // console.log(user.password);
+    // console.log(user.password);
+      bcrypt.compare(req.body.password, user.password).then((result) => {
+        // console.log(result)
+        if(result){
+          req.session.loggingIn = true
+          req.session.user = user
+        res.redirect('/interest/list')
+        } else {
+          console.log('Invalid password or username')
+        }
+      })
+  }).catch(err => {
+    console.log(err);
+  })
+})
+
+router.get('/logout', (req, res) => {
+  req.session.loggingIn = false
+  req.session.destroy(err => {
+    if(!err){
+      res.redirect('/')
+    }
+  })
+})
+
 
 
 

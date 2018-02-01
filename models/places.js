@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Places.associate = function (models) {
 
+
     Places.belongsToMany(models.Interest, {
       through: 'places_interest',
       foreignKey: 'places_id',
@@ -24,6 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: 'user_id'
     })
 
+
   }
   return Places;
 };
+

@@ -7,6 +7,13 @@
   <title>Document</title>
 </head>
 <body>
+    <style>
+      #map {
+        height: 200px;
+        width: 70%;
+       }
+    </style>
+    <h3><%= dataPlaces.name %></h3>
     <h1>User edit</h1>
     <form class="" action="/place/edit/<%= dataPlaces.id %>" method="post">
       <input type="text" placeholder="name" name="name" value= <%=dataPlaces.name %>>
@@ -25,17 +32,24 @@
       function initMap() {
         var PS = {lat: -6.225588, lng: 106.798553};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+
+          zoom: 15,
           center: PS
         });
         var marker = new google.maps.Marker({
           position: PS,
           map: map
         });
+        var marker2 = new google.maps.Marker({
+          position: {lat: -6.2230991076, lng: 106.791596834},
+          map: map
+        });
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAIzXpQR2AexfyCCtje5jaSrMtQO5rPNsQ&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIzXpQR2AexfyCCtje5jaSrMtQO5rPNsQ&callback=initMap">
   </script>
+  <h4>Your Location</h4>
+  
 </body>
 </html>
