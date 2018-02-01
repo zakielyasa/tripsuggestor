@@ -37,7 +37,10 @@ module.exports = (sequelize, DataTypes) => {
       through: 'user_places',
       foreignKey: 'user_id',
       otherKey: 'places_id'})
-
+    User.hasMany(models.user_places, {
+      foreignKey: 'user_id',
+      otherKey: 'user_id'
+    })
   }
 
   User.beforeCreate(user => {

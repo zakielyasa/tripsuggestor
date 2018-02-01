@@ -5,10 +5,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-          is: ["^[a-z]+$",'i'], //hanya nerima huruf
+          // is: ["^[a-z]+$",'i'], //hanya nerima huruf
           notEmpty: true
        }
-    }
+    },
+    latitude: DataTypes.STRING,
+    longitude: DataTypes.STRING
   });
 
   Places.associate = function (models) {

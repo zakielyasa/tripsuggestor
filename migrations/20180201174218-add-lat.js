@@ -7,9 +7,9 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      */
-      return queryInterface.addColumn('Place', 'latitude', Sequelize.STRING {});
-    
+      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
+    */
+    return queryInterface.addColumn('Places', 'latitude', Sequelize.STRING);
   },
 
   down: (queryInterface, Sequelize) => {
@@ -18,7 +18,7 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkDelete('Person', null, {});
+      return queryInterface.dropTable('users');
     */
   }
 };

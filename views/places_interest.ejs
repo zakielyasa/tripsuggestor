@@ -7,6 +7,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
+      <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="/">Login</a></li>
+              <li><a href="/user/list">User</a></li>
+              <li><a href="/place/list">Place</a></li>
+              <li><a href="/interest/list">Interest</a></li>
+              <li><a href="/user/logout">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
     <h1>Places you might like to visit</h1>
     <table class="table table-bordered">
       <thead>
@@ -20,12 +35,55 @@
           <%data.Places.forEach(result =>{%>
         <tr>
           <td><a href="/interest/places_interest/detail_place" name="wishlist"><%=result.name%></a></td>
-          <td><a href="/interest/create_wishlist">Add to wishlist</a></td>
+          <td><a href="/interest/create_wishlist/<%= result.id%>">Add to wishlist</a><br>
+          <a href="/interest/places_interest/<%= result.id%>/review">View Review</a></td>
         </tr>
         <%})%>
         <%})%>
       </tbody>
       <p><a href="/interest/list">Back</a></p>
     </table>
+    <style>
+        #map {
+          height: 400px;
+          width: 50%;
+         }
+      </style>
+      <h3></h3>
+      <center>
+          <div id="map"></div>
+          <h2 style="display:none;" id="uid"><%=JSON.stringify(input) %></h2>
+          </center>
+          <script>
+            function initMap() {
+              var Monas = {lat: -6.175392, lng: 106.827153};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: Monas
+              });
+              var hasil_input =  $("#uid").html(); 
+              hasil_input= JSON.parse(hasil_input)
+              console.log(hasil_input)
+              // console.log(hasil_input[0].Places[1].latitude)
+              // console.log(hasil_input[0].Places.length)
+              let dataParsed = hasil_input[0].Places
+              // console.log(test[1])
+              // var marker1 = null
+              for (let i = 0; i < dataParsed.length; i++) {
+                let parsingLokasi = {lat: Number(hasil_input[0].Places[i].latitude), lng: Number(hasil_input[0].Places[i].longitude)}
+                 let lokasi = (parsingLokasi);
+                 if(lokasi){
+                  var marker = new google.maps.Marker({
+                    position: lokasi,
+                    map: map
+                  });
+                 } 
+              }
+              // console.log(dataPlaces);
+            }
+          </script>
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIzXpQR2AexfyCCtje5jaSrMtQO5rPNsQ&callback=initMap">
+        </script>
   </body>
 </html>

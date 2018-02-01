@@ -25,7 +25,7 @@ router.post('/list', (req,res) => {
       password: req.body.password
     }
     models.User.create(objUser)
-    .then(data => res.redirect('/user/list'))
+    .then(data => res.redirect('/'))
   })
 
 router.get('/edit/:id', (req,res) => {

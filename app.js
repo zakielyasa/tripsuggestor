@@ -24,8 +24,8 @@ app.use(session({
 
 app.use('/', index)
 app.use('/user', user)
-app.use('/interest', interest)
-app.use('/place', place)
+app.use('/interest', loginAuth, interest)
+app.use('/place', loginAuth, place)
 
 
 

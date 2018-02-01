@@ -13,15 +13,25 @@ router.get(`/list`, (req, res) => {
 })
 
 router.get('/list/add', (req, res) => {
-    res.render('createplace')
+    models.Interest.findAll().then(data => {
+        res.render('createplace', {data: data})
+    })
 })
 
 router.post('/list/add', (req, res) => {
     let objNewPlace = {
-        name: req.body.name
+        name: req.body.name,
+        latitude: String(req.body.latitude),
+        longitude: String(req.body.longitude) 
     }
-    Places.create(objNewPlace).then(() => {
-        res.redirect('/place/list')
+    
+    models.Places.create(objNewPlace).then((data) => {
+        models.places_interest.create({
+            interest_id: req.body.interest_id,
+            places_id: data.id
+        }).then(()=> {
+            res.redirect('/place/list')
+        })    // res.send(data)
     })
 })
 
@@ -37,7 +47,9 @@ router.get('/edit/:id', (req,res) => {
 
 router.post('/edit/:id', (req, res) => {
     let objUpdatePlace ={
-        name: req.body.name
+        name: req.body.name,
+        latitude: String(req.body.latitude),
+        longitude: String(req.body.longitude)
     }
     Places.update(objUpdatePlace, {where: {id: req.params.id}}).then(() => {
         res.redirect('/place/list')
@@ -51,7 +63,7 @@ router.get(`/delete/:id`, (req, res) => {
     })
 })
 
-router.get('/wishlist')
+
 
 
 

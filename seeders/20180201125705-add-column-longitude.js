@@ -12,6 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    return queryInterface.addColumn('Place', 'longitude', Sequelize.STRING {});
   },
 
   down: (queryInterface, Sequelize) => {

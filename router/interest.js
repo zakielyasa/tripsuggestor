@@ -56,9 +56,6 @@ router.post('/places_interest/', (req, res) => {
 //
 // })
 
-router.get('/create_wishlist', (req,res) => {
-    res.render('wishlist.ejs')
-})
 
 router.post('/create_wishlist', (req, res) => {
   let objNewWishlist = {
@@ -77,12 +74,54 @@ router.get('/places_interest/:id/detail_place', (req, res) => {
 })
 
 router.get('/wishlist', (req, res) => {
-  models.Places.findAll().then(data => {
-    res.render('wishlist', {input: data})
+  models.user_places.findAll({
+    include: [models.Places],
+    where:{user_id: req.session.user.id}
+  }).then(data => {
+    res.render('wishlist', {user_places: data})
+    // res.send(data)
   })
 })
 
+router.get('/create_wishlist/:id', (req, res) => {
+  models.user_places.create({
+    user_id: req.session.user.id,
+    places_id: req.params.id
+  }).then(user_places => {
+    res.redirect('/interest/wishlist')
+  })
+  // res.send(req.session)
+})
 
+router.post('/add_rating/:id', (req, res) => {
+  models.user_places.update({
+    rating: req.body.rating
+  }, {where: {id: req.params.id}}).then(() => {
+    res.redirect('/interest/wishlist')
+  })
+})
 
+router.post('/add_review/:id', (req, res) => {
+  models.user_places.update({
+    review: req.body.review
+  }, {where: {id: req.params.id}}).then(() => {
+    res.redirect('/interest/wishlist')
+  })
+})
+
+router.get('/places_interest/:id/review', (req, res) => {
+  models.user_places.findAll({include: [models.User],
+    where:{
+      places_id:req.params.id  
+    }
+  }).then(data => {
+    // res.send(data)
+    data = data.filter(e => {
+      // console.log()
+      return e.review != null
+    })
+    res.render('review', {data: data})
+  })
+})
 
 module.exports = router

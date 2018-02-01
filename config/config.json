@@ -1,9 +1,18 @@
 {
-  "development": {
+  "production": {
     "username": "postgres",
     "password": "zed220891",
     "database": "database",
     "host": "127.0.0.1",
     "dialect": "postgres"
+  },
+  "development": {
+    "username": "bhbfcpzk",
+    "password": "miSlkOlKQYl1JmdaFdMfVISUsj4rkhtJ",
+    "database": "bhbfcpzk",
+    "host": "baasu.db.elephantsql.com",
+    "dialect": "postgres"
   }
 }
+
+
