@@ -97,21 +97,18 @@ module.exports = {
         updatedAt: new Date(),
         interest: 'Nature'
       },
-
       {
         name: 'Sea World',
         createdAt: new Date(),
         updatedAt: new Date(),
         interest: 'Education'
       },
-
       {
         name: 'Ragunan Zoo',
         createdAt: new Date(),
         updatedAt: new Date(),
         interest: 'Education'
       },
-
       {
         name: 'Supernova Esports iCafe',
         createdAt: new Date(),
@@ -144,14 +141,12 @@ module.exports = {
         updatedAt: new Date(),
         interest: 'Culinary'
       },
-
       {
         name: 'Nasi Goreng Kebuli Apjay',
         createdAt: new Date(),
         updatedAt: new Date(),
         interest: 'Culinary'
       },
-
       {
         name: 'Negev Gastronomy & Art',
         createdAt: new Date(),

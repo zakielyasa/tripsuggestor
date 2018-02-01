@@ -15,7 +15,8 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },{
-        name: 'Fachrizal Gita',
+
+        name: ' Fachrizal Gita',
         username: 'cechaajah',
         password: 'cechaganteng',
         createdAt: new Date(),
