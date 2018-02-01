@@ -28,4 +28,5 @@ app.use('/interest', loginAuth, interest)
 app.use('/place', loginAuth, place)
 
 
+
 app.listen(3000, () => console.log('CUUSSSSS di 3000'))

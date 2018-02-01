@@ -22,6 +22,18 @@ module.exports = {
         interest: 'Nature',
         createdAt: new Date(),
         updatedAt: new Date()
+      },{
+        interest: 'Education',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },{
+        interest: 'Nightlife',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },{
+        interest: 'Gaming',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
 
     ], {});

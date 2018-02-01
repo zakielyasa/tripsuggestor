@@ -5,9 +5,7 @@ const bcrypt = require('bcrypt')
 const loginAuth = require('../helper/loginAuth')
 
 
-router.get('/', (req,res) => {
-  res.send('WELCOME TO INTEREST ADVISOR')
-})
+
 
 router.get('/list', (req,res) =>{
   models.User.findAll()
@@ -55,6 +53,7 @@ router.get('/delete/:id' , (req,res) => {
 router.get('/login', (req,res) => {
   res.render('login')
 })
+
 
 router.post('/login', (req,res) => {
   // res.send(req.body)

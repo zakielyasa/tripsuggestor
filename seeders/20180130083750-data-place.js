@@ -10,133 +10,178 @@ module.exports = {
       {
         name: 'Plaza Senayan',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Shopping'
       },
       {
         name: 'Plaza Indonesia',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Shopping'
       },
       {
         name: 'Senayan City',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Shopping'
       },
       {
         name: 'Mall Kelapa Gading',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Shopping'
       },
       {
         name: 'Mall of Indonesia',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Shopping'
       },
       {
-        name: 'Baywalk Pluit',
+        name: 'Gelora Bung Karno',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Sports'
       },
       {
-        name: 'Central Park Mall',
+        name: 'Pondok Indah Golf Course',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Sports'
       },
       {
-        name: 'PX Pavilion @ St. Moritz',
+        name: 'Waterboom',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Sports'
       },
       {
-        name: 'Gandaria City',
+        name: 'Metro Futsal',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Sports'
       },
       {
-        name: 'Pondok Indah Mall',
+        name: 'Jakarta Golf Club',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Sports'
       },
       {
         name: 'Kota Kasablanka',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Shopping'
       },
       {
         name: 'Gunung Pancar',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Nature'
       },
       {
-        name: 'Pulau Macan',
+        name: 'Mie Abang Adek Jakarta',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Culinary'
       },
       {
         name: 'Pulau Seribu',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Nature'
       },
       {
         name: 'Tanjung Lesung',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Nature'
       },
-      {
-        name: 'Ujung Kulon National Park',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-
       {
         name: 'Sea World',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Education'
       },
-
       {
         name: 'Ragunan Zoo',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Education'
       },
-
       {
-        name: 'Ancol',
+        name: 'Supernova Esports iCafe',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Gaming'
+      },
+      {
+        name: 'Prima Warnet',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        interest: 'Gaming'
+      },
+      {
+        name: 'Rental Ps3 86',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        interest: 'Gaming'
       },
 
       {
         name: 'B.A.T.S. at Shangri-la Hotel',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Culinary'
       },
 
       {
-        name: 'Tiga Puluh at Le Meridien Hotel Jakarta',
+        name: 'Nasi Goreng Kebon Sirih',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Culinary'
       },
-
+      {
+        name: 'Nasi Goreng Kebuli Apjay',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        interest: 'Culinary'
+      },
       {
         name: 'Negev Gastronomy & Art',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Education'
       },
       {
         name: 'FLOW Bar & Restaurant',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Nightlife'
       },
       {
         name: 'Hard Rock Cafe',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Music'
       },
       {
-        name: 'Molly Malones',
+        name: 'Fable',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        interest: 'Nightlife'
+      },
+      {
+        name: 'Jenja',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        interest: 'Nightlife'
+      },
+      {
+        name: 'Domain Resto and bar',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        interest: 'Nightlife'
       }
     ], {});
 
