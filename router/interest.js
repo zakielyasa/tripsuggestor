@@ -49,12 +49,19 @@ router.post('/places_interest/', (req, res) => {
     // res.send(data[0].Places[0].name)
     res.render('places_interest',{input: data})
   })
-
-
-
 })
 
+router.get('/places_interest/:id/detail_place', (req, res) => {
+  models.Places.findById(req.params.id).then(detail => {
+    res.render('detail_place', {detail: detail})
+  })
+})
 
+router.get('/wishlist', (req, res) => {
+  models.Places.findAll().then(data => {
+    res.render('wishlist', {input: data})
+  })
+})
 
 
 module.exports = router
