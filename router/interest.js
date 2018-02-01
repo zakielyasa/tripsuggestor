@@ -49,6 +49,25 @@ router.post('/places_interest/', (req, res) => {
     // res.send(data[0].Places[0].name)
     res.render('places_interest',{input: data})
   })
+
+})
+
+// router.get('/places_interest/detail_place', (req, res) => {
+//
+// })
+
+router.get('/create_wishlist', (req,res) => {
+    res.render('wishlist.ejs')
+})
+
+router.post('/create_wishlist', (req, res) => {
+  let objNewWishlist = {
+    wishlist: req.body.wishlist
+  }
+  models.user_places.create(objNewWishlist).then(() => {
+    res.redirect('/places_interest')
+  })
+
 })
 
 router.get('/places_interest/:id/detail_place', (req, res) => {
@@ -62,6 +81,8 @@ router.get('/wishlist', (req, res) => {
     res.render('wishlist', {input: data})
   })
 })
+
+
 
 
 module.exports = router

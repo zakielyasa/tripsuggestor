@@ -13,14 +13,19 @@ module.exports = (sequelize, DataTypes) => {
 
   Places.associate = function (models) {
 
-    Places.belongsToMany(models.Interest, { through: 'places_interest', foreignKey: 'places_id', otherKey: 'interest_id'})
+
+    Places.belongsToMany(models.Interest, {
+      through: 'places_interest',
+      foreignKey: 'places_id',
+      otherKey: 'interest_id'})
 
     Places.belongsToMany(models.User, {
-      foreignKey: 'places_id',
       through: 'user_places',
+      foreignKey: 'places_id',
       otherKey: 'user_id'
     })
-    
+
+
   }
   return Places;
 };

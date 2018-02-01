@@ -51,5 +51,8 @@ router.get(`/delete/:id`, (req, res) => {
     })
 })
 
+router.get('/wishlist')
+
+
 
 module.exports = router

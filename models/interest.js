@@ -16,10 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     Interest.belongsToMany(models.User, {
       foreignKey: 'interest_id',
       through: 'user_interest',
-      otherKey: 'user_id'
-    })
+      otherKey: 'user_id'})
 
-    Interest.belongsToMany(models.Places, { through: 'places_interest', foreignKey: 'interest_id', otherKey: 'places_id'})
+    Interest.belongsToMany(models.Places, {
+      foreignKey: 'interest_id',
+      through: 'places_interest',
+      otherKey: 'places_id'})
 
   }
   return Interest;

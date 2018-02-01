@@ -19,8 +19,8 @@
         <%input.forEach(data =>{%>
           <%data.Places.forEach(result =>{%>
         <tr>
-          <td><a href="/interest/places_interest/<%= result.id%>/detail_place"><%=result.name%></a></td>
-          <td><a href="/interest/wishlist" action="/interest/invoice" method="get">Add to wishlist</a></td>
+          <td><a href="/interest/places_interest/detail_place" name="wishlist"><%=result.name%></a></td>
+          <td><a href="/interest/create_wishlist">Add to wishlist</a></td>
         </tr>
         <%})%>
         <%})%>
